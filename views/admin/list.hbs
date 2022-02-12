@@ -1,0 +1,11 @@
+<h2>Edit & Delete</h2>
+  <a href="/">Top</a>
+
+{{#if user}}
+{{#each data}}
+  <h2>{{this.work}}</h2>
+  <p>{{this.type}}</p>
+  <a href="/admin/edit/{{this._id}}">Edit</a>
+  <a href="/admin/delete/{{this._id}}">Delete</a>
+{{/each}}
+{{/if}}

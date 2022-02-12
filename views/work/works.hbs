@@ -1,0 +1,11 @@
+
+    <h1>Works</h1>
+    <a href="/"><p>Top</p></a>
+
+    {{#each data}}
+
+      <h2>{{this.work}}</h2>
+      <p>{{this.type}}</p>
+      <a href="/works/{{this._id}}">Detail</a>
+
+    {{/each}}

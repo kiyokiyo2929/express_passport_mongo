@@ -1,0 +1,19 @@
+<h2>Upload page</h2>
+
+{{#if user}}
+    <div>
+        <a href="/">Top</a>
+        
+        <form action="/admin/upload" method="post">
+        <label>Work Name</label>
+        <input type="text" name="work"/>
+        <label>Type</label>
+        <input type="text" name="type"/>
+        <input type="submit" value="UPLOAD"/>
+    </form>
+
+    <a href="/admin/edit_and_deleate"><p>Edit & Deleate</p></a>
+    <a href="/admin/logout">Log-Out</a>
+
+    </div>
+{{/if}}

@@ -1,0 +1,12 @@
+<h2>Edit</h2>
+
+{{#if user}}
+<form action="/admin/edit/{{data._id}}" method="POST">
+    <label>Work</label>
+    <input type="text" name="work" value="{{data.work}}"/>
+    <label>Type</label>
+    <input type="text" name="type" value="{{data.type}}"/>
+    <input type="submit" value="Edit">
+</form>
+{{/if}}
+

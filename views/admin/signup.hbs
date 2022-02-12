@@ -1,0 +1,20 @@
+<h2>Signup</h2>
+
+<form action="/admin/signup" method="POST">
+    <label for="username">Username</label>
+    <input type="text" name="username" placeholder="username"/>
+    
+    <label for="password">Password</label>
+    <input type="password" name="password" placeholder="password"/>
+
+    {{#if message}}
+        <p>{{message}}</p>
+    {{/if}}
+
+    <button>Create account</button>
+
+    <p>
+        Do you already have an account?
+        <a href="/admin/login">Login</a>
+    </p>
+</form>
