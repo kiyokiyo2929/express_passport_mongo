@@ -560,7 +560,7 @@ footer {
 
   #header_flex {
     justify-content: space-between;
-    margin-top: 10px;
+    margin-top: 7px;
   }
 
   footer {
@@ -569,11 +569,11 @@ footer {
 
   /* top-page */
   #top_title_wrapper p {
-    margin-top: 28vh;
+    margin-top: 30vh;
   }
-  #top_title_wrapper p:hover {
+  /* #top_title_wrapper p:hover {
     margin-top: 28vh;
-  }
+  } */
 
   /* work_list */
   .type_and_result_flex {
