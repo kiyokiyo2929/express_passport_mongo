@@ -44,9 +44,9 @@ require('dotenv').config();
 const port = process.env.PORT || 3000;
 const dbUrl = process.env.MONGODB_URI;
 
-app.listen(port, () => {
-  console.log(`listening on port ${port}`);
-});
+// app.listen(port, () => {
+//   console.log(`listening on port ${port}`);
+// });
 
 mongoose.connect( dbUrl, ()=>{
   console.log('sucessfully connected to MongoDB.')
