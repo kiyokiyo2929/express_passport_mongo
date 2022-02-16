@@ -4,7 +4,6 @@ const pop_up = () =>{
 
 // works page photo  
 const btn_1 = () => {
-  console.log('click')
   const photo_id_visible = document.getElementById("photo_1");
   const photo_id_invisible1 = document.getElementById("photo_2");
   const photo_id_invisible2 = document.getElementById("photo_3");
