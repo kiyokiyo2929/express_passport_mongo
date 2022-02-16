@@ -607,7 +607,11 @@ footer {
   .previous,
   .unlink {
     width: 15vw;
-    text-align: center;
+  }
+  .next:hover,
+  .previous:hover,
+  .unlink:hover {
+    width: 15vw;
   }
 
   /* work_detail_page */
@@ -627,14 +631,9 @@ footer {
     width: 90vw;
   }
 
-  #slider_btn div {
-    width: 90vw;
-    object-fit: cover;
-  }
-
   #slider_btn img {
     width: 90vw;
-    height: 60vh;
+    height: 35vh;
     pointer-events: none;
   }
 
