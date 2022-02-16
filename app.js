@@ -13,7 +13,7 @@ const contactRouter = require('./routes/contact');
 const worksRouter = require('./routes/works');
 const aboutRouter = require('./routes/about');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const bcryptSalt = 10;
 const session = require("express-session");
 const passport = require("passport");
