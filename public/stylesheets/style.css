@@ -560,7 +560,7 @@ footer {
 
   #header_flex {
     justify-content: space-between;
-    margin-top: 12px;
+    margin-top: 10px;
   }
 
   footer {
@@ -599,6 +599,47 @@ footer {
 
   .item_list_item_warpper img {
     width: 85vw;
+    height: 35vh;
     object-fit: cover;
+  }
+
+  .next,
+  .previous,
+  .unlink {
+    width: 15vw;
+    text-align: center;
+  }
+
+  /* work_detail_page */
+  #contents_flex {
+    flex-direction: column;
+  }
+
+  #slider_wrap img {
+    display: none;
+  }
+
+  #slider_btn {
+    flex-direction: column;
+  }
+
+  #detail_data_wrapper {
+    width: 90vw;
+  }
+
+  #slider_btn div {
+    width: 90vw;
+    object-fit: cover;
+  }
+
+  #slider_btn img {
+    width: 90vw;
+    height: 60vh;
+    pointer-events: none;
+  }
+
+  .thumbnail_2,
+  .thumbnail_3 {
+    opacity: 1;
   }
 }
