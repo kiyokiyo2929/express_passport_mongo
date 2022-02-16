@@ -1,4 +1,63 @@
-<h2>Detail Page</h2>
-<p>{{data.work}}</p>
-<p>{{data.type}}</p>
-<a href="/works">Back</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Jost:wght@200&family=Nunito+Sans:ital,wght@0,200;1,600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src='/javascripts/main.js'></script>
+    <title>Work Detail {{data.name}} / Neu-Gier</title>
+</head>
+<body>
+  <header>
+    
+        <div id="top_logo">
+            <a href="/"><p>Neu-Gier</p></a>
+        </div>
+        <ul id="header_flex">
+            <li>
+                <a href="/works" class="header_heiglight"><p>Works</p></a>
+            </li>
+            <li>
+                <a href="/about"><p>About</p></a>
+            </li>
+            <li>
+                <a href="/contact"><p>Contact</p></a>
+            </li>
+        </ul>
+        <div id="admin_logo">
+            <a href="/admin"><p>Admin</p></a>
+        </div>
+
+  </header>
+
+  <div class="contants_wrapper" id="contents_flex">
+        <div id="detail_data_wrapper">
+            <h2>{{data.name}}</h2>
+            <p>{{data.technologies}}</p>
+            <a href="{{data.link}}"><p>Web-Site</p></a>
+            <a href="{{data.repositories}}"><p>Repositories</p></a>
+        </div>
+    
+        <div id="img_wrapper">
+            <ul id="slider_wrap">
+                <li id="photo_1" class="visible"><img src="{{data.image_1}}"></li>
+                <li id="photo_2" class="invisible"><img src="{{data.image_2}}"></li>
+                <li id="photo_3" class="invisible"><img src="{{data.image_3}}"></li>
+            </ul>
+            
+            <ul id="slider_btn">
+                <li onclick="btn_1()"><div><img src="{{data.image_1}}" id="thumbnail_1" class="visible_"></div></li>
+                <li onclick="btn_2()"><div><img src="{{data.image_2}}" id="thumbnail_2" class="invisible_"></div></li>
+                <li onclick="btn_3()"><div><img src="{{data.image_3}}" id="thumbnail_3" class="invisible_"></div></li>
+            </ul>
+        </div>
+  </div>
+
+<footer><p>Neu-Gier</p></footer>
+
+</body>
+</html>

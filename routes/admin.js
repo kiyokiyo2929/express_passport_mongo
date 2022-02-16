@@ -7,7 +7,9 @@ const bcryptSalt = 10;
 const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
-const ensureLogin = require("connect-ensure-login")
+const ensureLogin = require("connect-ensure-login");
+const paginate = require("express-paginate");
+
 
 const app = express();
 
@@ -48,12 +50,15 @@ require('dotenv').config();
 
 /* GET users listing. */
 router.get('/', (req, res, next)=> {
-  res.render('admin/users');
+  res.render('admin/users', {user:req.user});
 });
 
 router.post("/upload", (req, res, next)=>{
-    const {work, type} = req.body;
-    const newWork = new Work({work, type})
+    const {name, link, technologies, repositories, useReact,useNext, useNode, useMongo, image_1, image_2, image_3 } = req.body;
+
+    const newWork = new Work({
+    name, link, technologies, repositories, useReact,useNext, useNode, useMongo, image_1, image_2, image_3
+    })
     newWork.save()
     .then(()=>{
       res.redirect("/works")
@@ -63,14 +68,33 @@ router.post("/upload", (req, res, next)=>{
     })    
 })
 
-router.get("/edit_and_deleate", (req, res, next)=>{
-  Work.find()
-  .then(Data => {
-    res.render("admin/list", {data:Data, user:req.user})
-  })
-  .catch(err=>{
-    console.log(err)
-  })
+router.get("/edit_and_deleate", ensureLogin.ensureLoggedIn(), (req, res, next)=>{
+    const options = {
+    lean: true,
+    limit:req.query.limit,
+    page:req.query.page
+    }
+
+    Work.paginate({}, options, (err, result)=>{
+        let next;
+        let previous;
+        let next_number;
+        let previous_number; 
+        let start_number = 1;
+        let end_number = 6;
+
+        (result.page < result.pages)? next = true: next = false;
+        (result.page == 1)? previous = false: previous = true;
+      
+        next_number = (result.page)+1;
+        previous_number = (result.page)-1;
+
+        start_number = (((result.page) -1) * 6 ) + 1;
+        end_number = (result.page) * 6;
+        (end_number > result.total)? end_number = result.total:'';
+      
+        res.render('admin/list', {data:result.docs, start_number:start_number, end_number:end_number, next_number:next_number, next_page: next, previous_number:previous_number, previous_page: previous, total:result.total});
+    })
 })
 
 router.get("/delete/:id", (req, res, next)=>{
@@ -84,7 +108,7 @@ router.get("/delete/:id", (req, res, next)=>{
   })
 })
 
-router.get("/edit/:id", (req, res, next)=>{
+router.get("/edit/:id", ensureLogin.ensureLoggedIn(), (req, res, next)=>{
   Work.findById(req.params.id)
   .then(Data=>{
     res.render("admin/edit", {data:Data, user:req.user})
@@ -94,9 +118,10 @@ router.get("/edit/:id", (req, res, next)=>{
   })
 })
 
-router.post("/edit/:id", (req, res, next)=>{
-  const {work, type} = req.body;
-  Work.update({_id:req.params.id}, {$set:{work:work, type:type}})
+router.post("/edit/:id",  (req, res, next)=>{
+  const {name, link, technologies, repositories, useReact,useNext, useNode, useMongo, image_1, image_2, image_3 } = req.body;
+
+  Work.update({_id:req.params.id}, {$set:{name:name, link:link, technologies:technologies, repositories:repositories, useReact:useReact, useNext:useNext, useNode:useNode, useMongo:useMongo, image_1:image_1, image_2:image_2, image_3:image_3  }})
   .then(()=>{
     res.redirect("/admin/edit_and_deleate")
   })

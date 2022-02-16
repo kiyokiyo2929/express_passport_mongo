@@ -1,9 +1,14 @@
-
-    <h1>Users</h1>
-     
-    <a href="/"><p>Top</p></a>
-    <a href="/admin/login">Log-in</a>
-     
-    
-    <a href="/admin/signup">Sign-up</a>
+<div class="contants_wrapper">
+    <h1>Administrator</h1>
+    <div id="log_sign_up_flex">
+        <a href="/admin/login"><p class="log_sign_up log_in">Log-in</p></a>
+        <a href="/admin/signup"><p class="log_sign_up">Sign-up</p></a>
+    </div>
+    {{#if user}}
+    <div id="log_out_admin_flex">
+        <a href="/admin/administrator-page"><p class="log_sign_up log_sign_up log_in">Admin-Page</p></a>
+        <a href="/admin/logout"><p class="log_sign_up">Log-Out</p></a>
+    </div>
+    {{/if}}
+</div>
 

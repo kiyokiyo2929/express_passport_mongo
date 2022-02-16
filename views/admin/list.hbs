@@ -1,11 +1,47 @@
-<h2>Edit & Delete</h2>
-  <a href="/">Top</a>
+<div class="contants_wrapper">
 
-{{#if user}}
-{{#each data}}
-  <h2>{{this.work}}</h2>
-  <p>{{this.type}}</p>
-  <a href="/admin/edit/{{this._id}}">Edit</a>
-  <a href="/admin/delete/{{this._id}}">Delete</a>
-{{/each}}
-{{/if}}
+  <div id="edit_and_deleate_header">
+    <h2 class="link">Edit & Delete</h2>
+    <a href="/admin/administrator-page"><h2 class="link">Admin-Top</h2></a>
+    
+    <div class="type_and_result_flex">
+      <h2>All Works  / <span id="result_number_highlight"> {{start_number}} - {{end_number}} items </span> / Total {{total}} items</span></h2>
+    </div>
+
+  </div>
+  
+      <ul class="item_list_wrapper" id="edit_item_wrapper">
+         {{#each data}}
+          <li>
+            <a href="/works/{{this._id}}">
+              <div class="item_list_item_warpper edit_item_title_wrapper">
+                <h3>{{this.name}}</h3>
+                <p>{{this.technologies}}</p>
+                <div id="edit_delate_wrapper">
+                    <a href="/admin/edit/{{this._id}}"><p class="edit_delate_link">Edit</p></a>
+                    <a href="/admin/delete/{{this._id}}"><p class="edit_delate_link">Delete</p></a>
+                </div>
+                <img src="{{this.image_1}}"/>
+              </div>
+            </a>
+          </li>
+          {{/each}}
+      </ul>
+      
+      <div class="pagination_part">
+        <div class="pagination_flex">
+          {{#if previous_page}}
+             <a href="/admin/edit_and_deleate/?page={{previous_number}}&limit=6"><p class="previous">previous</p></a>
+          {{else}}
+             <p class="unlink previous_">previous</p>
+          {{/if}}
+          {{#if next_page}}
+             <a href="/admin/edit_and_deleate/?page={{next_number}}&limit=6"><p class="next">next</p></a>
+          {{else}}
+             <p class="unlink">next</p>
+          {{/if}}
+        </div>
+      </div>
+
+    </div>
+

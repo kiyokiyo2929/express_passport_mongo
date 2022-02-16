@@ -1,8 +1,547 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Inter", sans-serif;
+  font-family: "Jost", sans-serif;
+  font-family: "Nunito Sans", sans-serif;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
 a {
-  color: #00B7FF;
+  list-style: none;
+  text-decoration: none;
+  color: black;
+}
+
+/* top-page */
+#top_title_wrapper {
+  position: relative;
+}
+#top_text1 {
+  position: absolute;
+  font-size: 15vw;
+  width: 100vw;
+  text-align: center;
+  opacity: 1;
+  animation-name: top_effect1;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+#top_text2 {
+  position: absolute;
+  font-size: 15vw;
+  width: 100vw;
+  text-align: center;
+  opacity: 0;
+  animation-name: top_effect2;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes top_effect1 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes top_effect2 {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* headeer */
+#header_flex {
+  display: flex;
+  width: 100vw;
+  padding: 0;
+  justify-content: center;
+}
+
+#header_flex li {
+  list-style: none;
+}
+
+#header_flex p {
+  font-size: 20px;
+  margin: 1vw;
+}
+
+header {
+  height: 7vh;
+  width: 90vw;
+  margin-left: 5vw;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  border-bottom: solid 1px black;
+}
+
+header p {
+  margin-top: 1vh;
+  color: black;
+}
+
+#top_logo {
+  font-size: 25px;
+  width: 15vw;
+}
+
+#admin_logo {
+  font-size: 15px;
+  width: 15vw;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.header_heiglight p {
+  font-weight: bold;
+  color: black;
+}
+
+/* footer */
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 7vh;
+  width: 90vw;
+  margin: 0px;
+  margin-left: 5vw;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: solid 1px black;
+}
+
+/* common parts */
+.contants_wrapper {
+  width: 90vw;
+  margin: 3vh 5vw;
+}
+
+#flex_part {
+  list-style: none;
+  padding: 0;
+}
+
+/* contact page */
+.icon_wrapper {
+  display: flex;
+}
+.icon_wrapper img {
+  width: 25px;
+  margin-right: 7px;
+}
+
+/* work page */
+.type_and_result_flex {
+  display: flex;
+  align-items: baseline;
+}
+
+.work_inside_flex {
+  display: flex;
+  list-style: none;
+  margin-left: 3vw;
+}
+
+.work_inside_flex p {
+  width: 5vw;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: solid 1px black;
+  text-align: center;
+  margin-left: 0.5vw;
+}
+.work_inside_flex p:hover {
+  width: 5vw;
+  color: white;
+  background-color: black;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: solid 1px black;
+  text-align: center;
+  margin-left: 0.5vw;
+}
+
+#result_number_highlight {
+  text-decoration: underline;
+}
+
+.highlight_work_inside {
+  color: white;
+  background-color: gray;
+  width: 5vw;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border: solid 1px gray;
+  text-align: center;
+  margin-left: 0.5vw;
+}
+
+/* work list */
+.item_list_wrapper {
+  display: flex;
+  list-style: none;
+  width: 90vw;
+  flex-wrap: wrap;
+  min-height: 65vh;
+}
+
+.item_list_wrapper h3 {
+  font-size: 20px;
+  margin-bottom: 0px;
+}
+
+.item_list_wrapper p {
+  font-size: 15px;
+  margin-top: 5px;
+}
+
+.item_list_item_warpper {
+  width: 30vw;
+}
+
+.item_list_wrapper li {
+  margin-bottom: 2vh;
+}
+
+.item_list_item_warpper img,
+.item_list_item_warpper a,
+.item_list_item_warpper p,
+.item_list_item_warpper h3 {
+  margin-left: 3vw;
+}
+
+.item_list_item_warpper img {
+  width: 22vw;
+  height: 20vh;
+  object-fit: cover;
+}
+
+/* detail_page */
+#img_wrapper {
+  margin-top: 2vh;
+}
+
+#detail_data_wrapper {
+  width: 30vw;
+  margin-left: 5vw;
+}
+#detail_data_wrapper h2 {
+  font-size: 35px;
+}
+
+#detail_data_wrapper p {
+  font-size: 15px;
+}
+
+#detail_data_wrapper a {
+  text-decoration: underline;
+}
+
+#contents_flex {
+  display: flex;
+}
+
+#slider_wrap {
+  display: flex;
+  list-style: none;
+}
+
+#slider_wrap img {
+  width: 50vw;
+  height: 50vh;
+  object-fit: cover;
+}
+#slider_btn {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5vh;
+}
+
+#slider_btn img {
+  height: 15vh;
+  object-fit: cover;
+}
+
+.invisible {
+  display: none;
+}
+
+.invisible_ {
+  opacity: 0.6;
+}
+
+/* pagination */
+.previous,
+.previous_ {
+  margin-right: 2vw;
+}
+
+.unlink {
+  color: gainsboro;
+  padding: 2px 0px;
+  border: solid 1px gainsboro;
+  width: 8vw;
+  text-align: center;
+}
+.next,
+.previous {
+  color: black;
+  padding: 2px 0px;
+  border: solid 1px black;
+  width: 8vw;
+  text-align: center;
+}
+
+.next:hover {
+  color: white;
+  background: black;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: solid 1px black;
+  width: 8vw;
+  text-align: center;
+}
+
+.previous:hover {
+  color: white;
+  background: black;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  border: solid 1px black;
+  width: 8vw;
+  text-align: center;
+}
+
+.unlink {
+  color: gainsboro;
+  padding: 2px 0px;
+  border: solid 1px gainsboro;
+  width: 8vw;
+  text-align: center;
+}
+
+.pagination_part {
+  display: flex;
+  justify-content: center;
+}
+
+.pagination_flex {
+  display: flex;
+}
+
+.pagination_flex p {
+  font-size: 15px;
+  padding: 2px 10px;
+}
+
+/* admin_page */
+
+#upload_page_wrapper p,
+#edit_page_wrapper p {
+  text-decoration: underline;
+  margin-right: 3vw;
+  font-size: 20px;
+}
+
+.log_sign_up {
+  width: 10vw;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  border: solid 1px black;
+}
+
+.log_sign_up:hover {
+  width: 10vw;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  text-align: center;
+  color: white;
+  background: black;
+  border: solid 1px black;
+}
+.log_in {
+  margin-right: 2vw;
+}
+
+#log_sign_up_flex {
+  display: flex;
+}
+
+#log_out_admin_flex {
+  display: flex;
+}
+
+.input_wrapper {
+  margin-bottom: 15px;
+  width: 30vw;
+  display: flex;
+  justify-content: space-between;
+}
+.input_wrapper input {
+  width: 20vw;
+}
+
+#edit_and_deleate_header {
+  display: flex;
+}
+
+#edit_and_deleate_header h2 {
+  margin-bottom: 0px;
+  margin-top: 0px;
+  margin-right: 30px;
+}
+
+#edit_item_wrapper h3 {
+  margin-top: 0px;
+}
+
+.link {
+  text-decoration: underline;
+}
+
+/* edit */
+.edit_post_btn {
+  width: 30vw;
+  background: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
+}
+.edit_post_btn:hover {
+  color: white;
+  background-color: black;
+  width: 30vw;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
+}
+
+#title_edit_wrapper {
+  display: flex;
+  align-items: baseline;
+  width: 30vw;
+  justify-content: space-between;
+}
+
+#edit_wrapper {
+  display: flex;
+}
+
+#edit_right img {
+  width: 20vw;
+}
+
+#edit_right {
+  margin-left: 15vw;
+}
+
+.edit_delate_link {
+  margin: 0 5px;
+  padding: 0 0;
+}
+
+#edit_delate_wrapper {
+  display: flex;
+}
+
+#edit_delate_wrapper a {
+  margin-left: 0;
+  text-decoration: underline;
+}
+
+.edit_item_title_wrapper p {
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+/* log-in */
+.login_sign_btn input {
+  width: 16vw;
+  background: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
+}
+.login_sign_btn input:hover {
+  width: 16vw;
+  background: black;
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
+}
+
+.login_sign_input input {
+  width: 10vw;
+  border: solid 1.5px black;
+}
+
+.login_sign_input {
+  width: 16vw;
+  display: flex;
+  margin-bottom: 5px;
+  justify-content: space-between;
+}
+
+/* sign-in */
+.sign_btn {
+  width: 16vw;
+  background: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
+}
+.sign_btn:hover {
+  width: 16vw;
+  background: black;
+  color: white;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  margin-top: 15px;
+  border: solid 1px black;
 }

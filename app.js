@@ -5,12 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const paginate = require('express-paginate')
 
+const indexRouter = require('./routes/index');
+const adminRouter = require('./routes/admin');
+const contactRouter = require('./routes/contact');
+const worksRouter = require('./routes/works');
+const aboutRouter = require('./routes/about');
 
-
-var indexRouter = require('./routes/index');
-var adminRouter = require('./routes/admin');
-const worksRouter = require('./routes/works')
 const bcrypt = require('bcrypt');
 const bcryptSalt = 10;
 const session = require("express-session");
@@ -29,14 +31,13 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(paginate.middleware(6, 50));
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(session({
   secret: "passport-local-strategy",
   resave: true,
   saveUninitialized: true
 }));
-
-
 
 require('dotenv').config();
 
@@ -47,48 +48,15 @@ mongoose.connect( dbUrl, ()=>{
   console.log('sucessfully connected to MongoDB.')
 })
 
-// mongoose.Promise = Promise;
-// mongoose
-//   .connect(dbUrl, {useMongoClient:true})
-//   .then(()=>{
-//     console.log("Connected to Mongo!")
-//   })
-//   .catch(err=>{
-//     console.error("Error", err)
-//   });
-
-passport.serializeUser((user, cb)=>{
-  cb(null, user._id)
-})
-
-passport.deserializeUser((id, cb)=>{
-  User.findById(id, (err, user)=>{
-    if(err){return cb(err);}
-    cb(null, user);
-  });
-});
-
-passport.use(new LocalStrategy((username, password, next)=>{
-  User.findOne({username}, (err, user)=>{
-    if(err){
-      return next(err);
-    }
-    if(!user){
-      return next(null, false, {message:"Incorrect username"});
-    }
-    if(!bcrypt.compareSync(password, user.password)){
-      return next(null, false, {message:"Incorrect password"});
-    }
-    return next(null, user);
-  })
-}))
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
-app.use('/works', worksRouter)
+app.use('/works', worksRouter);
+app.use('/contact', contactRouter);
+app.use('/about', aboutRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

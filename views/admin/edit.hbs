@@ -1,12 +1,80 @@
-<h2>Edit</h2>
-
-{{#if user}}
-<form action="/admin/edit/{{data._id}}" method="POST">
-    <label>Work</label>
-    <input type="text" name="work" value="{{data.work}}"/>
-    <label>Type</label>
-    <input type="text" name="type" value="{{data.type}}"/>
-    <input type="submit" value="Edit">
-</form>
-{{/if}}
+<div class="contants_wrapper">
+    <div id="edit_wrapper">
+        <div id="edit_left">
+            <div id="title_edit_wrapper">
+                <h2>Edit</h2>
+                <div id="edit_page_wrapper" >
+                    <a href="/admin/administrator-page"><p>Admin-Top</p></a>
+                </div>
+            </div>
+            {{#if user}}
+            
+          
+            <form action="/admin/edit/{{data._id}}" method="POST">
+                <div class="input_wrapper">
+                    <label>Name</label>
+                    <input type="text" name="name" value="{{data.name}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Link</label>
+                    <input type="text" name="link" value="{{data.link}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Technologies</label>
+                    <input type="text" name="technologies" value="{{data.technologies}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>repositories</label>
+                    <input type="text" name="repositories" value="{{data.repositories}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Use React?</label>
+                    <p>value="{{data.useReact}}"</p>
+                    <input type="checkbox" name="useReact" value="{{data.useReact}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Use Next?</label>
+                    <p>value="{{data.useNext}}"</p>
+                    <input type="checkbox" name="useNext"  value="{{data.useNext}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Use Node?</label>
+                    <p>value="{{data.useNode}}"</p>
+                    <input type="checkbox" name="useNode" value="{{data.useNode}}">
+                </div>
+                <div class="input_wrapper">
+                    <label>Use Mongo?</label>
+                    <p>value="{{data.useMongo}}"</p>
+                    <input type="checkbox" name="useMongo" value="{{data.useMongo}}">
+                </div>
+          
+                <div class="input_wrapper">
+                    <label>Image1</label>
+                    <input type="text" name="image_1" value="{{data.image_1}}">
+                </div>
+              
+                <div class="input_wrapper">
+                    <label>Image2</label>
+                    <input type="text" name="image_2" value="{{data.image_2}}">
+                </div>
+               
+                <div class="input_wrapper">
+                    <label>Image3</label>
+                    <input type="text" name="image_3" value="{{data.image_3}}">
+                </div>
+                
+                <input type="submit" value="Edit" class="edit_post_btn">
+            </form>
+            {{/if}}
+        </div>
+        <div id="edit_right">
+                  <p>Image1</p>
+                  <img src="{{data.image_1}}">
+                  <p>Image2</p>
+                  <img src="{{data.image_2}}">
+                  <p>Image3</p>
+                  <img src="{{data.image_3}}">
+        </div>
+     <div>
+</div>
 

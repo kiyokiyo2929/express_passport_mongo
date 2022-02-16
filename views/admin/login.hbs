@@ -1,15 +1,17 @@
-<h2>Log-in</h2>
+<div class="contants_wrapper">
+    <h2>Log-in</h2>
 
-<form action="/admin/login" method="POST">
-    <div>
-        <label for="username">Username:</label>
-        <input type="text" name="username"/>
-    </div>
-    <div>
-        <label for="password">Password:</label>
-        <input type="password" name="password"/>
-    </div>
-    <div>
-        <input type="submit" value="Log In"/>
-    </div>
-</form>
+    <form action="/admin/login" method="POST">
+        <div class="login_sign_input">
+            <label for="username">Username:</label>
+            <input type="text" name="username"/>
+        </div>
+        <div class="login_sign_input">
+            <label for="password">Password:</label>
+            <input type="password" name="password"/>
+        </div>
+        <div class="login_sign_btn">
+            <input type="submit" value="Log In"/>
+        </div>
+    </form>
+</div>

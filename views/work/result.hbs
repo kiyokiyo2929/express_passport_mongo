@@ -1,0 +1,116 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Jost:wght@200&family=Nunito+Sans:ital,wght@0,200;1,600&display=swap" rel="stylesheet">
+    <script type="text/javascript" src='/javascripts/main.js'></script>
+    <title>Result / Works with {{type_name}} / Neu-Gier </title>
+</head>
+<body>
+  <header>
+        <div id="top_logo">
+            <a href="/"><p>Neu-Gier</p></a>
+        </div>
+        <ul id="header_flex">
+            <li>
+                <a href="/works" class="header_heiglight"><p>Works</p></a>
+            </li>
+            <li>
+                <a href="/about"><p>About</p></a>
+            </li>
+            <li>
+                <a href="/contact"><p>Contact</p></a>
+            </li>
+        </ul>
+        <div id="admin_logo">
+            <a href="/admin"><p>Admin</p></a>
+        </div>
+
+  </header>
+     
+    <div class="contants_wrapper">
+      
+        <div class="type_and_result_flex">
+           <h2>Works with {{type_name}}  / <span id="result_number_highlight"> {{start_number}} - {{end_number}} items </span>  / Total {{total}} items</h2>
+
+
+          {{#if next}}
+            <ul class="work_inside_flex">
+                <li><a href="/works/result/next"><p class="highlight_work_inside">Next</p></a></li>
+                <li><a href="/works/result/react"><p>React</p></a></li>
+                <li><a href="/works/result/node"><p>Node</p></a></li>
+                <li><a href="/works/result/mongo"><p>Mongo</p></a></li>
+            </ul>
+           {{/if}}
+
+           {{#if react}}
+            <ul class="work_inside_flex">
+                <li><a href="/works/result/next"><p>Next</p></a></li>
+                <li><a href="/works/result/react"><p class="highlight_work_inside">React</p></a></li>
+                <li><a href="/works/result/node"><p>Node</p></a></li>
+                <li><a href="/works/result/mongo"><p>Mongo</p></a></li>
+            </ul>
+            {{/if}}
+
+            {{#if node}}
+            <ul class="work_inside_flex">
+                <li><a href="/works/result/next"><p>Next</p></a></li>
+                <li><a href="/works/result/react"><p>React</p></a></li>
+                <li><a href="/works/result/node"><p class="highlight_work_inside">Node</p></a></li>
+                <li><a href="/works/result/mongo"><p>Mongo</p></a></li>
+            </ul>
+            {{/if}}
+
+            {{#if mongo}}
+            <ul class="work_inside_flex">
+                <li><a href="/works/result/next"><p>Next</p></a></li>
+                <li><a href="/works/result/react"><p>React</p></a></li>
+                <li><a href="/works/result/node"><p>Node</p></a></li>
+                <li><a href="/works/result/mongo"><p class="highlight_work_inside">Mongo</p></a></li>
+            </ul>
+            {{/if}} 
+
+         </div>
+
+        <ul class="item_list_wrapper">
+            {{#each data}}
+            <li>
+                <a href="/works/{{this._id}}">
+                    <div class="item_list_item_warpper">
+                        <h3>{{this.name}}</h3>
+                        <p>{{this.technologies}}</p>
+                        <img src="{{this.image_1}}"/>
+                    </div>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
+
+      <div class="pagination_part">
+        <div class="pagination_flex">
+          {{#if previous_page}}
+             <a href="/works/result/{{type}}/?page={{previous_number}}&limit=6"><p class="previous">previous</p></a>
+          {{else}}
+             <p class="unlink previous_">previous</p>
+          {{/if}}
+          {{#if next_page}}
+            <a href="/works/result/{{type}}/?page={{next_number}}&limit=6"><p class="next">next</p></a>
+          {{else}}
+            <p class="unlink">next</p>
+          {{/if}}
+        </div>
+      </div>
+    </div>
+
+
+
+  <footer><p>Neu-Gier</p></footer>
+</body>
+</html>

@@ -1,19 +1,61 @@
-<h2>Upload page</h2>
+<div class="contants_wrapper">
+    <h2>Upload page</h2>
 
-{{#if user}}
-    <div>
-        <a href="/">Top</a>
-        
-        <form action="/admin/upload" method="post">
-        <label>Work Name</label>
-        <input type="text" name="work"/>
-        <label>Type</label>
-        <input type="text" name="type"/>
-        <input type="submit" value="UPLOAD"/>
-    </form>
+    {{#if user}}
+        <div>
+            <div id="upload_page_wrapper">
+                <a href="/admin/edit_and_deleate"><p>Edit & Deleate</p></a>
+            </div>
 
-    <a href="/admin/edit_and_deleate"><p>Edit & Deleate</p></a>
-    <a href="/admin/logout">Log-Out</a>
+        <form action="/admin/upload" method="POST">
+            <div class="input_wrapper">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="name">
+            </div>
+            <div class="input_wrapper">
+                <label>Link</label>
+                <input type="text" name="link" placeholder="link of the project">
+            </div>
+            <div class="input_wrapper">
+                <label>Technologies</label>
+                <input type="text" name="technologies" placeholder="technologies of the project">
+            </div>
+            <div class="input_wrapper">
+                <label>repositories</label>
+                <input type="text" name="repositories"  placeholder="repositories of the project">
+            </div>
+            <div class="input_wrapper">
+                <label>Use React?</label>
+                <input type="checkbox" name="useReact">
+            </div>
+            <div class="input_wrapper">
+                <label>Use Next?</label>
+                <input type="checkbox" name="useNext">
+            </div>
+            <div class="input_wrapper">
+                <label>Use Node?</label>
+                <input type="checkbox" name="useNode">
+            </div>
+            <div class="input_wrapper">
+                <label>Use Mongo?</label>
+                <input type="checkbox" name="useMongo">
+            </div>
+            <div class="input_wrapper">
+                <label>Image1</label>
+                <input type="text" name="image_1" placeholder="image of the project">
+            </div>
+            <div class="input_wrapper">
+                <label>Image2</label>
+                <input type="text" name="image_2" placeholder="image of the project">
+            </div>
+            <div class="input_wrapper">
+                <label>image3</label>
+                <input type="text" name="image_3" placeholder="image of the project">
+            </div>
 
-    </div>
-{{/if}}
+        <input type="submit" value="post" class="edit_post_btn">
+        </form>
+        </div>
+    {{/if}}
+
+</div>
