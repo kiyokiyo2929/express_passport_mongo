@@ -256,6 +256,7 @@ footer {
   width: 22vw;
   height: 20vh;
   object-fit: cover;
+  border: solid 0.5px black;
 }
 
 /* detail_page */
@@ -293,6 +294,7 @@ footer {
   width: 50vw;
   height: 50vh;
   object-fit: cover;
+  border: solid 0.5px black;
 }
 #slider_btn {
   list-style: none;
@@ -304,6 +306,7 @@ footer {
 #slider_btn img {
   height: 15vh;
   object-fit: cover;
+  border: solid 0.5px black;
 }
 
 .invisible {
