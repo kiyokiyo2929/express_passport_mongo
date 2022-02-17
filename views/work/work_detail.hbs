@@ -39,7 +39,9 @@
             <h2>{{data.name}}</h2>
             <p>{{data.technologies}}</p>
             <a href="{{data.link}}"><p>Web-Site</p></a>
+            {{#if data.repositories}}
             <a href="{{data.repositories}}"><p>Repositories</p></a>
+            {{/if}}
         </div>
     
         <div id="img_wrapper">
